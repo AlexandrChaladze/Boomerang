@@ -34,6 +34,7 @@ class View {
     console.clear();
     const finaleScore = this.score.score;
     console.log(`${this.name} has ${finaleScore} points`);
+    return [this.name, finaleScore];
   }
   render() {
     const finaleScore = null;

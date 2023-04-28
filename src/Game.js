@@ -7,6 +7,7 @@ const Enemy = require("./game-models/Enemy");
 const Boomerang = require("./game-models/Boomerang");
 const View = require("./View");
 const getBoard = require("./getBoardFunc");
+const recordBoard = require("./recordnewPlayers");
 
 // const Boomerang = require("./game-models/Boomerang");
 
@@ -69,9 +70,11 @@ class Game {
     }, 100); // Вы можете настроить частоту обновления игрового цикла
   }
 
-  handleCollisions() {
+  async handleCollisions() {
     if (this.hero.position >= this.enemy.position) {
-      this.view.sayBye();
+      const name = this.view.sayBye()[0];
+      const score = this.view.sayBye()[1];
+      await recordBoard(name, score);
       this.hero.die();
     }
 
