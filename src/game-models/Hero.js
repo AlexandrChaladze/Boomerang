@@ -2,14 +2,16 @@
 
 class Hero {
   constructor({ position, boomerang }) {
-    this.skin = '🤠';
+    this.skin = "🤠";
     this.position = position;
     this.boomerang = boomerang;
   }
 
   moveLeft() {
     // Идём влево.
-    this.position -= 1;
+    if (this.position > 0) {
+      this.position -= 1;
+    }
   }
 
   moveRight() {
@@ -24,8 +26,9 @@ class Hero {
   }
 
   die() {
-    this.skin = '💀';
-    console.log('YOU ARE DEAD!💀');
+    console.log('name')
+    this.skin = "💀";
+    console.log("YOU ARE DEAD!💀");
     process.exit();
   }
 }

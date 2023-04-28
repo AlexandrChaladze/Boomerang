@@ -4,14 +4,16 @@
 
 class Boomerang {
   constructor(trackLength) {
-    this.skin = '🌀';
+    this.skin = "🌀";
     this.position = -1;
     this.trackLength = trackLength;
   }
-
+ 
+  
   fly() {
     const distance = 5; // Устанавливаем дистанцию полета бумеранга
-
+    const sound = require("sound-play");
+    sound.play("src/sounds/congratulations.wav");
     // Запускаем бумеранг на заданное расстояние
     for (let i = 1; i <= distance; i++) {
       setTimeout(() => this.moveRight(1), 100 * i);
