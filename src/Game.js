@@ -6,6 +6,8 @@ const Hero = require("./game-models/Hero");
 const Enemy = require("./game-models/Enemy");
 const Boomerang = require("./game-models/Boomerang");
 const View = require("./View");
+const getBoard = require("./getBoardFunc");
+
 // const Boomerang = require("./game-models/Boomerang");
 
 // Основной класс игры.
@@ -42,9 +44,11 @@ class Game {
     }
   }
 
-  play() {
+  async play() {
     this.view.sayHello();
-    if (this.view.gameStatus === "ScoreBoard") {
+    if (this.view.gameStatus === "Scoreboard") {
+      console.clear();
+      await getBoard();
       console.log("ScoreBoard");
       process.exit();
     }

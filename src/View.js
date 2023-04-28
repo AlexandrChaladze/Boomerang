@@ -20,9 +20,9 @@ class View {
   //здороваемся и определяем статус игры
   sayHello() {
     const playOrScore = readlineSync.question(
-      "1. Input 1 to see scoreBoard\n2. Press any other key to play\nYour answer: "
+      "1. Input 1 to see scoreBoard\n2. Input any other key to play\nYour answer: "
     );
-    this.gameStatus = playOrScore == 1 ? "ScoreBoard" : "Play";
+    this.gameStatus = playOrScore == 1 ? "Scoreboard" : "Play";
     if (this.gameStatus == "Play") {
       const name = readlineSync.question(
         "Enter your name to begin:\nYour name: "

@@ -9,5 +9,8 @@ const game = new Game({
 });
 
 // Запуск игры.
-game.play();
-runInteractiveConsole(game);
+async function play() {
+  await game.play();
+  runInteractiveConsole(game);
+}
+play();
