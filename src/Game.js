@@ -40,6 +40,9 @@ class Game {
     if (this.hero.position === this.enemy.position) {
       this.hero.die();
     }
+    if (this.boomerang.position > this.enemy.position) {
+      this.enemy.die();
+    }
   }
 
   play() {
@@ -57,7 +60,7 @@ class Game {
       }
 
       this.view.render(this.track);
-    }, 100); // Вы можете настроить частоту обновления игрового цикла
+    }, 90); // Вы можете настроить частоту обновления игрового цикла
   }
 
   handleCollisions() {
@@ -65,7 +68,7 @@ class Game {
       this.hero.die();
     }
 
-    if (this.boomerang.position === this.enemy.position) {
+    if (this.boomerang.position >= this.enemy.position) {
       this.enemy.die();
       // Обнуляем позицию бумеранга после столкновения с врагом
       this.boomerang.position = 1;

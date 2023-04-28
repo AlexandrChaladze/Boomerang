@@ -1,19 +1,16 @@
 // Бумеранг является оружием.
 // В дальнейшем можно добавить другое оружие.
 // Тогда можно будет создать класс Weapon и воспользоваться наследованием!
-
+const sound = require("sound-play");
 class Boomerang {
   constructor(trackLength) {
     this.skin = "🌀";
-    this.position = -1;
+    this.position === 0;
     this.trackLength = trackLength;
   }
- 
-  
+
   fly() {
-    const distance = 5; // Устанавливаем дистанцию полета бумеранга
-    const sound = require("sound-play");
-    sound.play("src/sounds/congratulations.wav");
+    const distance = 10; // Устанавливаем дистанцию полета бумеранга
     // Запускаем бумеранг на заданное расстояние
     for (let i = 1; i <= distance; i++) {
       setTimeout(() => this.moveRight(1), 100 * i);
@@ -25,7 +22,7 @@ class Boomerang {
     }
 
     // Сбрасываем позицию бумеранга после возвращения
-    setTimeout(() => this.reset(), 100 * (distance * 2));
+    setTimeout(() => this.reset(), 50 * (distance * 2));
   }
 
   reset() {
