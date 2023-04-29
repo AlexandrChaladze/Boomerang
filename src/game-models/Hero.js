@@ -1,5 +1,5 @@
 // Наш герой.
-
+const chalk = require("chalk");
 class Hero {
   constructor({ position, boomerang }) {
     this.skin = "🤠";
@@ -24,9 +24,9 @@ class Hero {
   }
 
   die() {
+    console.clear();
     this.skin = "💀";
-    console.log("YOU ARE DEAD!💀");
-    process.exit();
+    // process.exit();
   }
 }
 

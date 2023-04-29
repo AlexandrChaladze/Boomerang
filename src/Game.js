@@ -50,7 +50,7 @@ class Game {
     if (this.view.gameStatus === "Scoreboard") {
       console.clear();
       await getBoard();
-      console.log("ScoreBoard");
+      // console.log("ScoreBoard");
       process.exit();
     }
     setInterval(() => {
@@ -76,6 +76,8 @@ class Game {
       const score = this.view.sayBye()[1];
       await recordBoard(name, score);
       this.hero.die();
+      this.view.sayBye();
+      process.exit();
     }
 
     if (this.boomerang.position >= this.enemy.position) {

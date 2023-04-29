@@ -8,13 +8,31 @@ module.exports = {
       [
         {
           name: "John Doe",
-          score: 500,
+          score: 5000,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Sophia",
-          score: 5000,
+          name: "Sophia Zhirnova",
+          score: 50000,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Anna Makarova",
+          score: 600050,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Roman Sokolov",
+          score: 10150,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Player",
+          score: 200,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
