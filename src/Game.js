@@ -9,6 +9,8 @@ const View = require("./View");
 const getBoard = require("./getBoardFunc");
 const recordBoard = require("./recordnewPlayers");
 const getBanned = require("./getBannedListFunc");
+const readBanned = require("./readBannedFunc");
+const chalk = require("chalk");
 
 // const Boomerang = require("./game-models/Boomerang");
 
@@ -57,15 +59,15 @@ class Game {
     }
     if (this.view.gameStatus === "Banned") {
       console.clear();
-      await getBanned();
+      await readBanned();
       // console.log("ScoreBoard");
       process.exit();
     }
     //тут запрещаю играть забанненому игроку
-    if (this.view.gameStatus === "Banned") {
+    const forbiddenArr = await getBanned();
+    if (forbiddenArr.includes(this.view.name)) {
       console.clear();
-      await getBanned();
-      // console.log("ScoreBoard");
+      console.log(chalk.red.bold(`${this.view.name} is banned!`));
       process.exit();
     }
     setInterval(() => {

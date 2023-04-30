@@ -10,7 +10,6 @@ async function getBanned() {
     });
     const finalArr = Object.entries(newObj);
     const final = [];
-    console.log(chalk.green.bold("Banned list:"));
     for (let i = 0; i < finalArr.length; i++) {
       //   console.log(chalk.red.bold(`${i + 1}. ${finalArr[i][0]}`));
       final.push(finalArr[i][0]);
