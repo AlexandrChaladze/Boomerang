@@ -11,6 +11,7 @@ const recordBoard = require("./recordnewPlayers");
 const getBanned = require("./getBannedListFunc");
 const readBanned = require("./readBannedFunc");
 const chalk = require("chalk");
+const sound = require("sound-play");
 
 // const Boomerang = require("./game-models/Boomerang");
 
@@ -70,6 +71,7 @@ class Game {
       console.log(chalk.red.bold(`${this.view.name} is banned!`));
       process.exit();
     }
+
     setInterval(() => {
       // Let's play!
       this.handleCollisions();
@@ -89,15 +91,20 @@ class Game {
 
   async handleCollisions() {
     if (this.hero.position >= this.enemy.position) {
+      sound.play("src/sounds/zvuk-unitaza.mp3");
+
       const name = this.view.sayBye()[0];
       const score = this.view.sayBye()[1];
       await recordBoard(name, score, this.cheatsStatus);
+
       this.hero.die();
+
       this.view.sayBye();
       process.exit();
     }
 
     if (this.boomerang.position >= this.enemy.position) {
+      sound.play("src/sounds/die1.mp3");
       this.enemy.die();
       //Прибавляем очки
       this.view.score.scoreCount();
@@ -109,6 +116,8 @@ class Game {
   //читы включаем
   cheat() {
     this.enemy.die();
+    sound.play("src/sounds/die1.mp3");
+
     //Прибавляем очки
     this.view.score.scoreCount();
     // Обнуляем позицию бумеранга после столкновения с врагом
