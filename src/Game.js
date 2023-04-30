@@ -91,7 +91,7 @@ class Game {
     if (this.hero.position >= this.enemy.position) {
       const name = this.view.sayBye()[0];
       const score = this.view.sayBye()[1];
-      await recordBoard(name, score);
+      await recordBoard(name, score, this.cheatsStatus);
       this.hero.die();
       this.view.sayBye();
       process.exit();
