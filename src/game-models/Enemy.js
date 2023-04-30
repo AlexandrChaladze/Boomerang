@@ -31,7 +31,7 @@ class Enemy {
 
   die() {
     this.position = 0;
-    console.log("Enemy is dead!");
+    // console.log("Enemy is dead!");
   }
 }
 

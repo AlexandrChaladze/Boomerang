@@ -11,6 +11,7 @@ const keyboard = {
   left: (game) => game.hero.moveLeft(),
   right: (game) => game.hero.moveRight(),
   space: (game) => game.hero.attack(),
+  c: (game) => game.cheat(),
 };
 
 // Какая-то функция.

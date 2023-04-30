@@ -8,6 +8,7 @@ const Boomerang = require("./game-models/Boomerang");
 const View = require("./View");
 const getBoard = require("./getBoardFunc");
 const recordBoard = require("./recordnewPlayers");
+const getBanned = require("./getBannedListFunc");
 
 // const Boomerang = require("./game-models/Boomerang");
 
@@ -21,6 +22,7 @@ class Game {
     this.hero = new Hero({ position: 0, boomerang: this.boomerang });
     this.enemy = new Enemy(trackLength);
     this.view = new View(this);
+    this.cheatsStatus = "off";
     this.track = [];
     this.regenerateTrack();
   }
@@ -50,6 +52,19 @@ class Game {
     if (this.view.gameStatus === "Scoreboard") {
       console.clear();
       await getBoard();
+      // console.log("ScoreBoard");
+      process.exit();
+    }
+    if (this.view.gameStatus === "Banned") {
+      console.clear();
+      await getBanned();
+      // console.log("ScoreBoard");
+      process.exit();
+    }
+    //тут запрещаю играть забанненому игроку
+    if (this.view.gameStatus === "Banned") {
+      console.clear();
+      await getBanned();
       // console.log("ScoreBoard");
       process.exit();
     }
@@ -88,6 +103,16 @@ class Game {
       // this.boomerang.position = -1;
       this.enemy = new Enemy(this.trackLength); // Создаем нового врага
     }
+  }
+  //читы включаем
+  cheat() {
+    this.enemy.die();
+    //Прибавляем очки
+    this.view.score.scoreCount();
+    // Обнуляем позицию бумеранга после столкновения с врагом
+    // this.boomerang.position = -1;
+    this.enemy = new Enemy(this.trackLength); // Создаем нового врага
+    this.cheatsStatus = "on";
   }
 }
 

@@ -1,44 +1,32 @@
 "use strict";
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      "ScoreBoards",
+      "bannedUsers",
       [
         {
-          name: "John Doe",
-          score: 5000,
+          name: "Билли Митчелл",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Sophia Zhirnova",
-          score: 50000,
+          name: "Фрэнк Абигнейл",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Anna Makarova",
-          score: 600050,
+          name: "Пицца с ананасами",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Roman Sokolov",
-          score: 10150,
+          name: "Декаф кофе",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Konstantin Spiridonov",
-          score: 20000,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          name: "Aysen Kolesov",
-          score: 100130,
+          name: "Б/А пиво",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
