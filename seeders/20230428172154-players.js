@@ -7,8 +7,8 @@ module.exports = {
       "ScoreBoards",
       [
         {
-          name: "John Doe",
-          score: 5000,
+          name: "Mohanad Bahashwan",
+          score: 909080,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
