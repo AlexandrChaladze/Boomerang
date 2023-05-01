@@ -1,9 +1,10 @@
 // Наш герой.
-const sound = require('sound-play');
+
+const chalk = require("chalk");
 
 class Hero {
   constructor({ position, boomerang }) {
-    this.skin = '🤠';
+    this.skin = " 🥦 ";
     this.position = position;
     this.boomerang = boomerang;
   }
@@ -29,11 +30,13 @@ class Hero {
   }
 
   die() {
+
     sound.play('./src/sounds/twirl.wav');
     console.log('name');
     this.skin = '💀';
     console.log('YOU ARE DEAD!💀');
     process.exit();
+
   }
 }
 

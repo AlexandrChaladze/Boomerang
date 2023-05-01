@@ -1,7 +1,7 @@
 // Основной файл.
 // Запускает игру.
-const Game = require('./src/Game');
-const runInteractiveConsole = require('./src/keyboard');
+const Game = require("./src/Game");
+const runInteractiveConsole = require("./src/keyboard");
 
 // Инициализация игры с настройками.
 const game = new Game({
@@ -9,6 +9,8 @@ const game = new Game({
 });
 
 // Запуск игры.
-game.play();
-
-runInteractiveConsole(game);
+async function play() {
+  await game.play();
+  runInteractiveConsole(game);
+}
+play();
