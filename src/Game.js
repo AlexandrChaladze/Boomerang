@@ -73,7 +73,7 @@ class Game {
 
     setInterval(() => {
       // Let's play!
-      this.handleCollisions();
+      this.handlehCollisions();
       this.regenerateTrack();
 
       // Добавьте логику движения врагов, например, двигаться влево
